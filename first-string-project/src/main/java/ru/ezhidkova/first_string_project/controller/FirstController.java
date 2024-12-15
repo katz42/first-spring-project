@@ -10,10 +10,10 @@ import ru.ezhidkova.first_string_project.util.ShowDayOfWeek;
 public class FirstController {
 
     @GetMapping("/dayOfWeek")
-    public String dayOfWeek(@RequestParam String day) throws WrongDayNameException {
+    public String dayOfWeek(@RequestParam String day){
         try {
-            ShowDayOfWeek dayOfWeek = ShowDayOfWeek.showEnglishDayName(day);
-            return String.format("Сегодня %s", dayOfWeek.getRussianDay());
+            ShowDayOfWeek showDayOfWeek = ShowDayOfWeek.showEnglishDayName(day);
+            return String.format("Сегодня %s", showDayOfWeek.getRussianDay());
         } catch (WrongDayNameException e) {
             return "Такого дня недели не существует";
         }
